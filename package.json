@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
+  },
+  "scripts": {
+    "build": "npx tailwindcss -i ./styles/styles.css -o ./output.css --watch"
+  },
+  "dependencies": {
+    "audiomotion-analyzer": "^4.5.0"
+  }
+}

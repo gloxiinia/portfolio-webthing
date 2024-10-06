@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portfolio | Rachel Anastasia Wijaya</title>
+    <link href="../output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+    <style>
+        /* Global Retro Terminal Styling */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #000;
+            color: #0f0;
+        }
+
+        .prompt::before {
+            content: "$ ";
+        }
+
+        .terminal {
+            white-space: pre-wrap;
+            line-height: 1;
+        }
+
+        .hidden-section {
+            display: none;
+        }
+
+        .terminal-input {
+            background: none;
+            border: none;
+            color: #0f0;
+            font-family: inherit;
+            outline: none;
+            width: 100%;
+        }
+
+        .card {
+            list-style-type: none;
+            background-color: #000;
+            border: 1px solid #0f0;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card img {
+            height: auto;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 8px 4px #00ff00;
+        }
+
+        a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #00ff7f;
+        }
+
+        .project-popup-card {
+            display: flex; 
+            align-items: center; 
+            list-style-type: none;
+            background-color: #000;
+            border: 1px solid #0f0;
+            padding: 1rem; 
+            border-radius: 8px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-popup-card img {
+            height: auto;
+            width: 40%;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 1rem; 
+            display: block; 
+        }
+
+        .project-popup-card-content {
+            flex: 1; 
+        }
+
+        .project-popup-card:hover {
+            transform: scale(1.02);
+            background-color: #111; 
+            box-shadow: none; 
+        }
+
+        #muteButton {
+            background-color: #000;
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        #muteButton:hover {
+            background-color: #00ff00;
+            color: #000;
+        }
+
+        .hover\:shadow-neon:hover {
+            box-shadow: 0px 0px 8px 4px #00ff00;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: 1fr;
+        }
+
+        .md\:grid-cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .md\:grid-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .col-span-2 {
+            grid-column: span 2;
+        }
+
+        /* Add some space between grid items */
+        .gap-4 {
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body class="p-8">
+
+    <!-- Audio Element -->
+    <audio id="backgroundMusic" loop autoplay crossorigin="anonymous"> 
+        <source src="../resources/sunkencity.wav" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+   
+
+    <!-- Mute/Unmute Button -->
+    <button id="muteButton" class="mute-button" onclick="toggleMute()">🔊 Mute</button>
+
+    <div class="container mx-auto text-left">
+        <div class="terminal">
+            <div class="mb-2">
+                <p>You've entered the depths...</p>
+                <p>Type (or click) a command to navigate:</p>
+                <p class="flex justify-center space-x-4">
+                    <a href="#about" class="hover:text-blue-500" onclick="showSection('about')">[about]</a>
+                    <a href="#projects" class="hover:text-blue-500" onclick="showSection('projects')">[projects]</a>
+                    <a href="#skills" class="hover:text-blue-500" onclick="showSection('skills')">[skills]</a>
+                    <a href="#contact" class="hover:text-blue-500" onclick="showSection('contact')">[contact]</a>
+                    <a href="#help" class="hover:text-blue-500" onclick="showSection('help')">[help]</a>
+                    <a href="#credits" class="hover:text-blue-500" onclick="showSection('credits')">[credits]</a>
+                </p>                  
+            </div>
+
+            <div id="output"></div>
+
+            <div class="prompt">
+                <input id="commandInput" class="terminal-input" type="text" autofocus placeholder="Type your command...">
+            </div>
+        </div>
+    </div>
+
+    <!-- Sections -->
+    <div id="about" class="hidden-section">
+        <h2 class="text-2xl font-bold">About Me</h2>
+        <p>
+            Hi, I'm Rachel, a computer science student who's done software and web development projects, but with an interest in game development.
+            I love crafting experiences that combine creativity with technology.
+        </p>
+    </div>
+
+    <div id="projects" class="hidden-section">
+        <h2 class="text-2xl font-bold text-green-400 mb-4">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Left-aligned project cards (2x2 grid) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 col-span-2">
+                <!-- Link to Abendrot Project -->
+                <a href="#" class="card" onclick="showSection('abendrot')">
+                    <img src="../resources/images/abendrot.png" alt="Abendrot">
+                    <h3 class="text-lg font-bold text-green-300">Abendrot</h3>
+                    <p class="text-sm text-green-100">A Python text-based adventure game.</p>
+                </a>
+    
+                <!-- Link to Zwielicht Project -->
+                <a href="#" class="card" onclick="showSection('zwielicht')">
+                    <img src="../resources/images/zwielicht.png" alt="Zwielicht">
+                    <h3 class="text-lg font-bold text-green-300">Zwielicht</h3>
+                    <p class="text-sm text-green-100">A Java text-based adventure game.</p>
+                </a>
+    
+                <!-- Link to Bookstack Project -->
+                <a href="#" class="card" onclick="showSection('bookstack')">
+                    <img src="../resources/images/bookstack.png" alt="Bookstack">
+                    <h3 class="text-lg font-bold text-green-300">Bookstack</h3>
+                    <p class="text-sm text-green-100">A library database management app.</p>
+                </a>
+    
+                <!-- Link to Phasionista Project -->
+                <a href="#" class="card" onclick="showSection('phasionista')">
+                    <img src="../resources/images/phasionista.png" alt="Phasionista">
+                    <h3 class="text-lg font-bold text-green-300">Phasionista</h3>
+                    <p class="text-sm text-green-100">An e-commerce app built with React.</p>
+                </a>
+            </div>
+    
+            <!-- Right-aligned Streaks Project Card -->
+            <a href="#" class="card" onclick="showSection('streaks')">
+                <img src="../resources/images/streaks.gif" alt="Streaks Showcase">
+                <h3 class="text-lg font-bold text-green-300">Streaks</h3>
+                <p class="text-sm text-green-100">A mobile app with interactive features. View the demo!</p>
+            </a>
+        </div>
+    </div>
+
+    <!--Individual Project Cards -->
+    <div id="abendrot" class="hidden-section">
+        <div class="card project-popup-card">
+            <img src="../resources/images/abendrot.png" alt="Abendrot">
+            <div class="project-popup-card-content">
+                <h1>Abendrot | 2021</h1>
+                <p>A text-based adventure game demo made for a solo Algorithm and Programming solo project.</p>
+                <p>Inspired by visual novel and choices matter roleplaying video games.</p>
+                <p>Since this was my first ever programming project, it taught me a lot about navigating and using Python, especially about classes and their characteristics since I was making a video game. Even if it was just kind of experimental (a lot of just open-ended dialogue, no real endings, etc), it gave me not only the freedom to implement so many things using Python libraries like adding ASCII art and music, but also to practice my creative writing skills for the setting and characters.</p>
+                <div style="display: flex; justify-content: flex-start; margin-bottom: 10px;">
+                    <a href="https://github.com/gloxiinia/Abendrot_AlgoPro_FinalProject" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; background-color: #000; color: #00ff00; padding: 6px 12px; border: 2px solid #00ff00; border-radius: 4px; transition: background-color 0.3s, color 0.3s; width: auto;">
+                        <img src="../resources/images/github.png" alt="GitHub Logo" style="width: 18px; height: 18px; margin-right: 8px; margin-bottom: 4px;">
+                        <span>View on GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="zwielicht" class="hidden-section">
+        <div class="card project-popup-card">
+            <img src="../resources/images/zwielicht.png" alt="Zwielicht">
+            <div class="project-popup-card-content">
+                <h1>Zwielicht | 2022</h1>
+                <p>A text-based adventure game demo made for a solo Object Oriented Programming project.</p>
+                <p>Same like <span href="../src/abendrot.html">Abendrot</span>, this was inspired by the many visual novel and roleplaying video games I’ve played. I took this as an opportunity to refine upon the things that I wasnt able to in Abendrot, so I added new mechanics like weighted conversations, reactive NPCs, an inventory, and even save states.</p>
+                <p>Overall, this project made my journey to learning Java easier, since there were a lot of new and different syntax compared to Python. It also taught me about the importance of OOP when making projects.</p>
+                <div style="display: flex; justify-content: flex-start; margin-bottom: 10px;">
+                    <a href="https://github.com/gloxiinia/Zwielicht_OOPFinalProject" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; background-color: #000; color: #00ff00; padding: 6px 12px; border: 2px solid #00ff00; border-radius: 4px; transition: background-color 0.3s, color 0.3s; width: auto;">
+                        <img src="../resources/images/github.png" alt="GitHub Logo" style="width: 18px; height: 18px; margin-right: 8px; margin-bottom: 4px;">
+                        <span>View on GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bookstack" class="hidden-section">
+        <div class="card project-popup-card">
+            <img src="../resources/images/bookstack.png" alt="Bookstack">
+            <div class="project-popup-card-content">
+                <h1>Bookstack | 2022</h1>
+                <p>A group project made for both Data Science and Database courses.</p>
+                <p>The project combined aspects from data science (machine learning) and database management (library database). We scraped our data from Goodreads and preprocessed it to train on several machine learning algorithms to compare them. The data was also then stored in a simple library management app called Bookstack.</p>
+                <p>I mainly focused on the data science related tasks, like data scraping, preprocessing, and training the models,while helping with some minor tasks for the database.</p>
+                <div style="display: flex; justify-content: flex-start; margin-bottom: 10px;">
+                    <a href="https://github.com/steph45607/DB_FinalProject" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; background-color: #000; color: #00ff00; padding: 6px 12px; border: 2px solid #00ff00; border-radius: 4px; transition: background-color 0.3s, color 0.3s; width: auto;">
+                        <img src="../resources/images/github.png" alt="GitHub Logo" style="width: 18px; height: 18px; margin-right: 8px; margin-bottom: 4px;">
+                        <span>View the Database on GitHub</span>
+                    </a>
+                </div>
+                <div style="display: flex; justify-content: flex-start; margin-bottom: 10px;">
+                    <a href="https://github.com/steph45607/DS-Final-Project" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; background-color: #000; color: #00ff00; padding: 6px 12px; border: 2px solid #00ff00; border-radius: 4px; transition: background-color 0.3s, color 0.3s; width: auto;">
+                        <img src="../resources/images/github.png" alt="GitHub Logo" style="width: 18px; height: 18px; margin-right: 8px; margin-bottom: 4px;">
+                        <span>View the Data Science on GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="phasionista" class="hidden-section">
+        <div class="card project-popup-card">
+            <img src="../resources/images/phasionista.png" alt="Phasionista">
+            <div class="project-popup-card-content">
+                <h1>Phasionista | 2023</h1>
+                <p>An E-commerce app made for a Web Application Development and Security group project.</p>
+                <p>Made using React, Tailwind CSS, Express,js with Firebase functionalities. Deployed with AWS.</p>
+                <p>Primarily responsible for developing and maintaining the front end of the application.</p>
+                <p>This project was my first web development project using React and Firebase, which , in my opinion, had a high learning curve, so it helped in understanding what went into web app development.</p>
+                <div style="display: flex; justify-content: flex-start; margin-bottom: 10px;">
+                    <a href="https://github.com/PewterZz/Phasionista" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; background-color: #000; color: #00ff00; padding: 6px 12px; border: 2px solid #00ff00; border-radius: 4px; transition: background-color 0.3s, color 0.3s; width: auto;">
+                        <img src="../resources/images/github.png" alt="GitHub Logo" style="width: 18px; height: 18px; margin-right: 8px; margin-bottom: 4px;">
+                        <span>View on GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="streaks" class="hidden-section">
+        <div class="card project-popup-card">
+            <img src="../resources/images/streaks.gif" alt="Streaks">
+            <div class="project-popup-card-content">
+                <h1>Streaks | 2024</h1>
+                <p>Self-help Android app allowing users to choose either truth or dare and complete prompts made for a Mobile Application Development group project.</p>
+                <p>Made using Java and some Kotlin in Android Studio with Firebase functionalities.</p>
+                <p>Contributed to both front-end and back-end development tasks. Also ensured effective communication between the front end and back end (Firebase).</p>
+                <p>This was my first foray into mobile app development (I’ve only done web development up to that point), specifically using Android Studio. I learned there’s a lot of things different from web dev, like how you can actively edit and rearrange the app elements using the Layout Editor and using Views. In addition, I also refreshed my knowledge on using Firebase functionalities.</p>
+                <div style="display: flex; justify-content: flex-start; margin-bottom: 10px;">
+                    <a href="https://github.com/milostuff/mad-streaks" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; background-color: #000; color: #00ff00; padding: 6px 12px; border: 2px solid #00ff00; border-radius: 4px; transition: background-color 0.3s, color 0.3s; width: auto;">
+                        <img src="../resources/images/github.png" alt="GitHub Logo" style="width: 18px; height: 18px; margin-right: 8px; margin-bottom: 4px;">
+                        <span>View on GitHub</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="skills" class="hidden-section">
+        <h2 class="text-2xl font-bold">Skills</h2>
+        <ul>
+            <li>HTML, CSS, Java, JavaScript, TypeScript, Tailwind CSS</li>
+            <li>React, Node.js, Express, AndroidStudio</li>
+            <li>Python, C++</li>
+            <li>Data Analysis & Visualization</li>
+            <li>Project Management</li>
+        </ul>
+    </div>
+
+    <div id="contact" class="hidden-section terminal">
+        <h2 class="text-2xl font-bold">Contact Me :D</h2>
+        <p><a href="https://github.com/gloxiinia" target="_blank">GitHub</a></p>
+        <p><a href="https://www.instagram.com/qerioop/" target="_blank">Instagram</a></p>
+        <p>Email me at: <a href="mailto:rachelanastasia.w@gmail.com" class="underline">rachelanastasia.w@gmail.com</a></p>
+    </div>
+    
+
+    <div id="help" class="hidden-section">
+        <h2 class="text-2xl font-bold">Help</h2>
+        <p>Available commands:</p>
+        <ul class="p-0">
+            <li><span class="font-bold">about</span> - Learn more about me</li>
+            <li><span class="font-bold">projects</span> - View my projects</li>
+            <li><span class="font-bold">&lt;<project name>&gt;</span> - Check an individual project</li>
+            <li><span class="font-bold">skills</span> - See my skills</li>
+            <li><span class="font-bold">contact</span> - Get in touch</li>
+            <li><span class="font-bold">help</span> - See this help message</li>
+            <li><span class="font-bold">???</span> - ???</li>
+        </ul>
+    </div>
+
+    <div id="credits" class="hidden-section">
+        <h2 class="text-2xl font-bold">Cool Links</h2>
+        <p>Music: <a href="https://youtu.be/ZF-CPF_Ndm4?list=PLtkjJsGOW8yPVOauP48WCyeq7KARWxD7r" class="text-gray-400 hover:text-white mx-2" target="_blank">Sunken City</a></p>
+
+
+    </div>
+
+</body>
+
+<script src="../script.js"></script> 
+
+</html>
