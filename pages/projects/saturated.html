@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saturated — Rachel Anastasia Wijaya</title>
+    <link rel="stylesheet" href="../../output.css">
+</head>
+
+<body class="bg-black text-green-400 font-mono leading-relaxed p-8">
+
+    <!--Navigation Section-->
+    <nav class="max-w-7xl mx-auto px-6 py-16">
+        <ul class="flex flex-wrap justify-center space-x-4 text-2xl">
+            <li><a href="../about.html" class="hover:text-blue-500">[about]</a></li>
+            <li><a href="../projects.html" class="hover:text-blue-500">[projects]</a></li>
+            <li><a href="../skills.html" class="hover:text-blue-500">[skills]</a></li>
+            <li><a href="../contact.html" class="hover:text-blue-500">[contact]</a></li>
+            <li><a href="../credits.html" class="hover:text-blue-500">[links]</a></li>
+        </ul>
+    </nav>
+
+
+    <!--Main Content-->
+    <main class="max-w-7xl mx-auto px-6 pb-32 space-y-24">
+
+        <!--Hero Section-->
+        <section class="space-y-10">
+
+            <!--Title/Meta-->
+            <div class="text-center max-w-7xl mx-auto px-6 space-y-2">
+                <h1 class="text-5xl font-bold tracking-tight">
+                Saturated
+                </h1>
+                <p class="text-xl text-green-300/70">
+                2025 · Unity · 3D · Psychological Horror
+                </p>
+            </div>
+
+            <!--3D Viewer-->
+            <div
+                id="container3D"
+                class="relative mx-auto max-w-6xl
+                    mt-12 md:mt-16
+                    h-[45vh] md:h-[70vh]
+                    min-h-[420px] md:min-h-[620px]
+                    rounded-xl overflow-hidden
+                    border border-green-400/20"
+            >
+
+                <!--Top overlay bar-->
+                <div class="absolute top-3 left-3 right-3 z-10
+                            flex items-start justify-between pointer-events-none">
+
+                <!--Instructions-->
+                <div
+                    class="text-xs opacity-70
+                        bg-black/40 backdrop-blur px-2 py-1 rounded
+                        pointer-events-auto"
+                >
+                    drag to rotate · scroll to zoom · shift + drag to pan
+                </div>
+
+                    <!--Model Switcher-->
+                    <div class="flex gap-2 pointer-events-auto">
+                        <button
+                        onclick="switchModel('../../models/normal_tube/scene.glb')"
+                        class="border border-green-400 px-3 py-1 text-xs
+                                hover:bg-green-400 hover:text-black transition"
+                        >
+                        Tube A
+                        </button>
+
+                        <button
+                        onclick="switchModel('../../models/spooky_tube/scene.glb')"
+                        class="border border-green-400 px-3 py-1 text-xs
+                                hover:bg-green-400 hover:text-black transition"
+                        >
+                        Tube B
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!--Image Carousel-->
+        <section class="space-y-4">
+            <div id="imageCarousel"
+                class="relative mx-auto max-w-6xl
+                      overflow-x-auto
+                      cursor-grab active:cursor-grabbing
+                      select-none touch-pan-x"
+            >
+                <div
+                class="flex gap-6 px-6
+                        snap-x snap-mandatory"
+                >
+
+                <!--Slide-->
+                <img
+                    src="../../resources/images/saturated/poster_spooky_3_trimmed.png"
+                    draggable="false"
+                    class="snap-center shrink-0
+                          w-[75vw] md:w-[45vw] lg:w-[32vw]
+                          h-[200px] md:h-[260px] lg:h-[300px]
+                          object-cover
+                          rounded-lg"
+                />
+
+                <img
+                    src="../../resources/images/saturated/saturated-screenshot-1.png"
+                    draggable="false"
+                    class="snap-center shrink-0
+                          w-[75vw] md:w-[45vw] lg:w-[32vw]
+                          h-[200px] md:h-[260px] lg:h-[300px]
+                          object-cover
+                          rounded-lg"
+                />
+
+                <img
+                    src="../../resources/images/saturated/saturated-screenshot-2.png"
+                    draggable="false"
+                    class="snap-center shrink-0
+                          w-[75vw] md:w-[45vw] lg:w-[32vw]
+                          h-[200px] md:h-[260px] lg:h-[300px]
+                          object-cover
+                          rounded-lg"
+                />
+
+                <img
+                    src="../../resources/images/saturated/saturated-screenshot-3.png"
+                    draggable="false"
+                    class="snap-center shrink-0
+                          w-[75vw] md:w-[45vw] lg:w-[32vw]
+                          h-[200px] md:h-[260px] lg:h-[300px]
+                          object-cover
+                          rounded-lg"
+                />
+
+                <img
+                    src="../../resources/images/saturated/poster_spooky_1_trimmed.png"
+                    draggable="false"
+                    class="snap-center shrink-0
+                          w-[75vw] md:w-[45vw] lg:w-[32vw]
+                          h-[200px] md:h-[260px] lg:h-[300px]
+                          object-cover
+                          rounded-lg"
+                />
+
+                </div>
+            </div>
+        </section>
+
+        <!--Project Description-->
+        <section class="grid grid-cols-1 lg:grid-cols-5 gap-12">
+
+            <!--Left: Text-->
+            <div class="lg:col-span-3 space-y-6 text-xl text-green-300/80">
+                <p>
+                    A 3D psychological horror game developed by JoyBait Studio for an Apple Developer Academy group project. 
+                    Inspired by saturation diving and other underwater horror games.
+                </p>
+
+                <p>
+                    I got to apply the skills I’ve developed over the past eight months while expanding into Blender-based 3D modeling, texture creation, and narrative design.
+                </p>
+
+                <p>
+                    Working alongside teammates with game industry experience also gave me insight into the full game studio 
+                    workflow; from early concept brainstorming and defining a target audience to asset creation and showcasing the final game.
+                </p>
+
+                <p>
+                    Most importantly, this project was my first full-fledged game. Not just a demo, but a fully-published game 
+                    on the App Store. People were experiencing the world our group has managed to bring to life and I was part of why that happened.
+                </p>
+            </div>
+
+            <!--Right: Meta / Links-->
+            <aside class="lg:col-span-2 space-y-6 text-lg">
+                <div class="space-y-2">
+                    <p class="text-green-400">Role</p>
+                    <p class="text-green-300/70">Lead Story Writer · Lead 3D Artist · 2D Artist</p>
+                </div>
+
+                <div class="space-y-2">
+                    <p class="text-green-400">Tools</p>
+                    <p class="text-green-300/70">Blender · Photoshop · Illustrator ·  Unity</p>
+                </div>
+
+                <a
+                    href="https://apps.apple.com/id/app/saturated/id6755347604?mt=12"
+                    target="_blank"
+                    class="inline-flex items-center gap-3 border border-green-400 px-5 py-2
+                            hover:bg-green-400 hover:text-black transition w-fit"
+                >
+                    <img src="../../resources/images/logos/Mac_App_Store_logo.png" class="w-5 h-5" />
+                    <span>Download on the Mac App Store</span>
+                </a>
+
+                <a
+                    href="https://joybait-studio.itch.io/saturated"
+                    target="_blank"
+                    class="inline-flex items-center gap-3 border border-green-400 px-5 py-2
+                            hover:bg-green-400 hover:text-black transition w-fit"
+                >
+                    <img src="../../resources/images/logos/itchio-logo-textless-white.png" class="w-5 h-5" />
+                    <span>View on itch.io</span>
+                </a>
+            </aside>
+
+        </section>
+
+    </main>
+    <script type="module" src="../../js/3d.js"></script> 
+    <script src="../../js/script.js"></script> 
+</body>
+
+
+</html>

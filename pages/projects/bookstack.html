@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookStack — Rachel Anastasia Wijaya</title>
+    <link rel="stylesheet" href="../../output.css">
+</head>
+
+<body class="bg-black text-green-400 font-mono leading-relaxed p-8">
+
+    <!--Navigation Section-->
+    <nav class="max-w-7xl mx-auto px-6 py-16">
+        <ul class="flex flex-wrap justify-center space-x-4 text-2xl">
+            <li><a href="../about.html" class="hover:text-blue-500">[about]</a></li>
+            <li><a href="../projects.html" class="hover:text-blue-500">[projects]</a></li>
+            <li><a href="../skills.html" class="hover:text-blue-500">[skills]</a></li>
+            <li><a href="../contact.html" class="hover:text-blue-500">[contact]</a></li>
+            <li><a href="../credits.html" class="hover:text-blue-500">[links]</a></li>
+        </ul>
+    </nav>
+
+
+    <!--Main Content-->
+    <main class="max-w-7xl mx-auto px-6 pb-32 space-y-24">
+
+              <!--Hero Section-->
+        <section class="space-y-10">
+
+            <!--Title/Meta-->
+            <div class="text-center max-w-7xl mx-auto px-6 space-y-2">
+                <h1 class="text-5xl font-bold tracking-tight">
+                BookStack
+                </h1>
+                <p class="text-xl text-green-300/70">
+                2022 · Data Science · Library Management App
+                </p>
+              </div>
+
+              <div
+                class="relative mx-auto max-w-6xl
+                      mt-12 md:mt-16
+                      h-[45vh] md:h-[70vh]
+                      min-h-[420px] md:min-h-[620px]
+                      rounded-xl overflow-hidden
+                      border border-green-400/20"
+              >
+                <img
+                  src="../../resources/images/bookstack/bookstack-screenshot-1.png"
+                  alt="Abendrot preview"
+                  draggable="false"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+        </section>
+
+        <!--Image Carousel-->
+        <section class="space-y-4">
+            <div id="imageCarousel"
+                class="relative mx-auto max-w-6xl
+                      overflow-x-auto
+                      cursor-grab active:cursor-grabbing
+                      select-none touch-pan-x"
+                        >
+                <div
+                class="flex gap-6 px-6
+                        snap-x snap-mandatory"
+                >
+
+                <!--Slide-->
+                <img
+                    src="../../resources/images/bookstack/bookstack-screenshot-7.png"
+                    draggable="false"
+                    class="snap-center shrink-0
+                          w-[75vw] md:w-[45vw] lg:w-[32vw]
+                          h-[200px] md:h-[260px] lg:h-[300px]
+                          object-cover
+                          rounded-lg"
+                />
+
+                <img
+                    src="../../resources/images/bookstack/bookstack-screenshot-2.png"
+                    draggable="false"
+                    class="snap-center shrink-0
+                          w-[75vw] md:w-[45vw] lg:w-[32vw]
+                          h-[200px] md:h-[260px] lg:h-[300px]
+                          object-cover
+                          rounded-lg"
+                />
+
+                <img
+                    src="../../resources/images/bookstack/bookstack-screenshot-8.png"
+                    draggable="false"
+                    class="snap-center shrink-0
+                          w-[75vw] md:w-[45vw] lg:w-[32vw]
+                          h-[200px] md:h-[260px] lg:h-[300px]
+                          object-cover
+                          rounded-lg"
+                />
+
+                <img
+                    src="../../resources/images/bookstack/bookstack-screenshot-4.png"
+                    draggable="false"
+                    class="snap-center shrink-0
+                          w-[75vw] md:w-[45vw] lg:w-[32vw]
+                          h-[200px] md:h-[260px] lg:h-[300px]
+                          object-cover
+                          rounded-lg"
+                />
+
+                <img
+                    src="../../resources/images/bookstack/bookstack-screenshot-6.png"
+                    draggable="false"
+                    class="snap-center shrink-0
+                          w-[75vw] md:w-[45vw] lg:w-[32vw]
+                          h-[200px] md:h-[260px] lg:h-[300px]
+                          object-cover
+                          rounded-lg"
+                />
+                </div>
+            </div>
+        </section>
+
+        <!--Project Description-->
+        <section class="grid grid-cols-1 lg:grid-cols-5 gap-12">
+
+            <!--Left: Text-->
+            <div class="lg:col-span-3 space-y-6 text-xl text-green-300/80">
+                <p>
+                  A group project developed for Data Science and Database courses. 
+                  We scraped data from Goodreads, trained and compared multiple machine 
+                  learning models, and stored the results in a library management application called Bookstack.
+                </p>
+
+                <p>
+                  I got hands-on experience in data scraping, preprocessing, training machine learning models, and data analysis, as well as understanding how these workflows integrate with database-driven applications.
+                </p>
+
+                <p>
+                  In addition, I also learned the process of writing and publishing an academic paper for a conference. 
+                </p>
+
+                <p>
+                  Even though this isn't a game-related project, I feel like I wouldn't have enjoyed the process of 
+                  making BookStack as much as I did if it wasn't related to my passion of reading/writing.
+                </p>
+            </div>
+
+            <!--Right: Meta / Links-->
+            <aside class="lg:col-span-2 space-y-6 text-lg">
+                <div class="space-y-2">
+                    <p class="text-green-400">Role</p>
+                    <p class="text-green-300/70">Machine Learning Engineer · Data Analyst · Data Scientist</p>
+                </div>
+
+                <div class="space-y-2">
+                    <p class="text-green-400">Tools</p>
+                    <p class="text-green-300/70">MySQL · Python · Jupyter Notebook</p>
+                </div>
+
+                <a
+                    href="https://github.com/steph45607/DB_FinalProject"
+                    target="_blank"
+                    class="inline-flex items-center gap-3 border border-green-400 px-5 py-2
+                            hover:bg-green-400 hover:text-black transition w-fit"
+                >
+                    <img src="../../resources/images/logos/github.png" class="w-5 h-5" />
+                    <span>View the Database on GitHub</span>
+                </a>
+
+                <a
+                    href="https://github.com/steph45607/DS-Final-Project"
+                    target="_blank"
+                    class="inline-flex items-center gap-3 border border-green-400 px-5 py-2
+                            hover:bg-green-400 hover:text-black transition w-fit"
+                >
+                    <img src="../../resources/images/logos/github.png" class="w-5 h-5" />
+                    <span>View the Data Science on GitHub</span>
+                </a>
+
+                <a
+                    href="https://ieeexplore.ieee.org/document/10291619"
+                    target="_blank"
+                    class="inline-flex items-center gap-3 border border-green-400 px-5 py-2
+                            hover:bg-green-400 hover:text-black transition w-fit"
+                >
+                    <img src="../../resources/images/logos/ieee_logo_icon_169992.png" class="w-5 h-5" />
+                    <span>View the Published Paper</span>
+                </a>
+            </aside>
+
+        </section>
+
+  </main>
+
+  <script src="../../js/script.js"></script> 
+
+</body>
+</html>
